@@ -1,0 +1,450 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+header #menu-btn-check {
+  display: none;
+}
+
+header .hamburger-menu .menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 90;
+  background-color: #3584bb;
+}
+
+header .hamburger-menu .menu-btn span,
+header .hamburger-menu .menu-btn span:before,
+header .hamburger-menu .menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+header .hamburger-menu .menu-btn span:before {
+  bottom: 8px;
+}
+
+header .hamburger-menu .menu-btn span:after {
+  top: 8px;
+}
+
+header .hamburger-menu #menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);
+  /*メニューオープン時は真ん中の線を透明にする*/
+}
+
+header .hamburger-menu #menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+header .hamburger-menu #menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+header .hamburger-menu .menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  background-color: #3584bb;
+}
+
+header .hamburger-menu .menu-content ul {
+  padding: 70px 10px 0;
+}
+
+header .hamburger-menu .menu-content ul li {
+  border-bottom: solid 1px #ffffff;
+  list-style: none;
+}
+
+header .hamburger-menu .menu-content ul li a {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+  position: relative;
+}
+
+header .hamburger-menu .menu-content ul li a::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px #ffffff;
+  border-right: solid 2px #ffffff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  position: absolute;
+  right: 11px;
+  top: 16px;
+}
+
+header .hamburger-menu .menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  /*leftの値を変更してメニューを画面外へ*/
+  z-index: 80;
+  background-color: #3584bb;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  /*アニメーション設定*/
+}
+
+header .hamburger-menu #menu-btn-check:checked ~ .menu-content {
+  left: 0;
+  /*メニューを画面内へ*/
+}
+
+@media screen and (min-width: 1024px) {
+  header .hamburger-menu {
+    padding: 0% 3rem;
+  }
+  header .hamburger-menu .menu-btn {
+    display: none;
+  }
+  header .hamburger-menu .pc-menu-content ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  header .hamburger-menu .pc-menu-content ul li {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 12rem;
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header .hamburger-menu {
+    padding: 0% 3rem;
+  }
+  header .hamburger-menu .pc-menu-content {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  header .hamburger-menu .pc-menu-content {
+    display: none;
+  }
+}
+
+main {
+  text-align: center;
+  background-color: #e2e2e2;
+}
+
+@media screen and (min-width: 1024px) {
+  main .heading-wrap {
+    background-image: url(/img/mass-nutrition-tips.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+    padding: 8rem auto 4rem auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 600px;
+    color: #ffffff;
+    background-color: #bbb;
+  }
+  main .heading-wrap .heading h1 {
+    display: inline-block;
+    font-family: "Handlee", Sans-serif;
+    font-size: 94px;
+    text-transform: capitalize;
+    line-height: 1em;
+    letter-spacing: -0.7px;
+  }
+  main .heading-wrap .heading p {
+    display: block;
+    margin: 2rem auto;
+  }
+}
+
+.con-wrap img {
+  margin: 1rem auto;
+  display: block;
+}
+
+@media screen and (min-width: 1024px) {
+  .con-wrap {
+    height: 18rem;
+  }
+  .con-wrap h3 {
+    margin-top: 2rem;
+  }
+  .con-wrap a {
+    display: block;
+  }
+  .con-wrap h2 {
+    padding: 2rem 0 2rem 0;
+  }
+}
+
+.hiit .iframe-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.hiit .iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 6%;
+  width: 90%;
+  height: 90%;
+}
+
+.font-blue {
+  color: #007979;
+}
+
+.font-gray {
+  color: #313131;
+  font-size: 1.6rem;
+}
+
+.font-red {
+  color: #fc0000;
+  font-size: 1.6rem;
+}
+
+.btn-red {
+  background-color: red;
+}
+
+.btn-yellow {
+  background-color: yellow;
+}
+
+.btn-blue {
+  background-color: blue;
+}
+
+div button {
+  width: 18rem;
+  height: 3rem;
+  margin: 0 2rem;
+  border-radius: 4px;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0.1rem;
+}
+
+.content .picture {
+  margin-top: 0rem;
+  padding: 0;
+  width: 80%;
+}
+
+.content img {
+  margin: 0;
+  width: 100%;
+  -o-object-fit: center;
+     object-fit: center;
+  height: auto;
+  background: #bbb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 36px;
+  color: #fff;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content .article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+}
+
+.content .article .post {
+  width: 80%;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+}
+
+.content .article .post button {
+  width: 8rem;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  margin: 0;
+}
+
+.protein {
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 80%;
+}
+
+.description {
+  background-color: #fff;
+  padding: 4rem;
+}
+
+.description h1 {
+  padding: 2rem;
+}
+
+.description p {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.slider .slider-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  overflow: scroll;
+}
+
+.slider .slider-image img {
+  height: 30rem;
+  width: 24rem;
+}
+
+.about-writer {
+  background-image: url(/img/mass-nutrition-tips.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+
+.about-writer div {
+  display: inline-block;
+  margin-top: 16%;
+  color: #fff;
+}
+
+.about-writer div h1 {
+  font-size: 48px;
+}
+
+.about-writer div p {
+  margin-top: 1rem;
+}
+
+.about-writer div button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 4px solid #f7f7f7;
+  margin-top: 1rem;
+  color: #fff;
+  width: 8rem;
+  letter-spacing: 0.4rem;
+  font-size: 1rem;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .icon .menu .sns {
+  width: calc(100% / 3);
+}
+
+footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer ul li {
+  list-style: none;
+  width: 140px;
+}
+
+footer i {
+  color: #fff;
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
+/*# sourceMappingURL=style.css.map */

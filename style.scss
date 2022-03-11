@@ -1,0 +1,412 @@
+$pc: 1024px; // PC
+$tab: 1024px; // タブレット
+$sp: 680px;  // スマホ
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@mixin pc {
+  @media screen and (min-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media screen and (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+
+header {
+  background-color: rgba(0,0,0,0.4);
+  #menu-btn-check {
+    display: none;
+}
+.hamburger-menu {
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #3584bb;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.menu-content {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 80;
+background-color: #3584bb;
+}
+.menu-content ul {
+padding: 70px 10px 0;
+}
+.menu-content ul li {
+border-bottom: solid 1px #ffffff;
+list-style: none;
+}
+.menu-content ul li a {
+display: block;
+width: 100%;
+font-size: 15px;
+box-sizing: border-box;
+color:#ffffff;
+text-decoration: none;
+padding: 9px 15px 10px 0;
+position: relative;
+}
+.menu-content ul li a::before {
+content: "";
+width: 7px;
+height: 7px;
+border-top: solid 2px #ffffff;
+border-right: solid 2px #ffffff;
+transform: rotate(45deg);
+position: absolute;
+right: 11px;
+top: 16px;
+}
+.menu-content {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 100%;/*leftの値を変更してメニューを画面外へ*/
+z-index: 80;
+background-color: #3584bb;
+transition: all 0.5s;/*アニメーション設定*/
+}
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 0;/*メニューを画面内へ*/
+}
+  @include pc {
+    padding: 0% 3rem;
+    // opacity: 0.8;
+    .menu-btn{
+      display: none;
+    }
+    .pc-menu-content{
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        li{
+          list-style: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 12rem;
+          height: 4rem;
+        }
+      }
+    }
+
+  };
+  @include tab {
+    // background-color: blue;
+    padding: 0% 3rem;
+    .pc-menu-content{
+      display: none
+    }
+  };
+  @include sp {
+    .pc-menu-content{
+      display: none
+    }
+  };
+  
+}
+}
+
+main {
+  text-align: center;
+  background-color: #e2e2e2;
+  @include pc {
+    .heading-wrap {
+
+      background-image: url(/img/mass-nutrition-tips.jpg);
+      background-repeat:  no-repeat;
+      background-position:center center;
+      background-size:cover;
+      margin: 0;
+
+      padding: 8rem auto 4rem auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 600px;
+      color: #ffffff;
+      background-color: #bbb;
+      .heading {
+        h1 {
+          display: inline-block;
+          font-family: "Handlee", Sans-serif;
+          font-size: 94px;
+          text-transform: capitalize;
+          line-height: 1em;
+          letter-spacing: -0.7px;
+          // text-shadow: -4px 0px 20px rgb(0 0 0 / 30%);
+        };
+        p {
+          display: block;
+          margin: 2rem auto;
+        }
+      };
+    }
+  };
+  @include tab {
+    // background-color: blue;
+  };
+  @include sp {
+    // background-color: yellow;
+  };
+}
+
+.con-wrap {
+  img {
+    margin: 1rem auto;
+    display: block;
+  }
+  @include pc {
+    height: 18rem;
+    h3 {
+      margin-top: 2rem;
+    }
+
+    a {
+      display: block;
+    }
+    h2 {
+      padding: 2rem 0 2rem 0;
+    }
+
+  }
+}
+
+.hiit {
+  .iframe-wrap{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 6%;
+      width: 90%;
+      height: 90%;
+    }
+  }
+}
+
+.font-blue {
+  color: rgb(0, 121, 121);
+}
+
+.font-gray {
+  color: rgb(49, 49, 49);
+  font-size: 1.6rem;
+}
+.font-red {
+  color: rgb(252, 0, 0);
+  font-size: 1.6rem;
+}
+
+.btn-red {
+  background-color: red;
+}
+
+.btn-yellow {
+  background-color: yellow;
+}
+
+.btn-blue {
+  background-color: blue;
+}
+
+
+div {
+  button {
+    width: 18rem;
+    height: 3rem;
+    margin: 0 2rem;
+    border-radius: 4px;
+  }
+}
+
+.content {
+    display: flex;
+    padding: 0 0.1rem;
+    .picture{
+      margin-top: 0rem;
+      padding: 0;
+      width: 80%;
+    }
+    img{
+      margin: 0;
+      width:100%;
+      object-fit: center; 
+      height:auto;
+      background: #bbb;
+      display: flex;
+      font-size:36px;
+      color:#fff;
+      align-items:center;
+      justify-content:center;
+      // &:nth-child(even){
+      //   flex-direction: row-reverse;
+      // }
+    }
+    .article{
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      // background-color: #fff;
+        .post{
+          width: 80%;
+          margin-top: auto;
+          margin-bottom: auto;
+          text-align: left;
+          button {
+            width: 8rem;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            margin: 0;
+          }
+      }
+    }
+}
+
+.protein {
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 80%;
+}
+
+.description {
+  background-color: #fff;
+  padding: 4rem;
+
+  h1 {
+    padding: 2rem;
+  }
+  p {
+    width: 60%;
+    margin:0 auto;
+  }
+}
+
+.slider {
+    // height: 00px;
+    .slider-image {
+      display: flex;
+      justify-content: left;
+      // float: left;
+      overflow: scroll;
+      img {
+        // width: 33%;
+        height: 30rem;
+        width: 24rem;
+      }
+    }
+}
+
+.about-writer {
+    background-image: url(/img/mass-nutrition-tips.jpg);
+    height: 600px;
+    background-repeat:  no-repeat;
+    background-position:center center;
+    background-size:cover;
+    width:100%;
+    height:400px;  
+    div {
+      display: inline-block;
+      margin-top: 16%;
+      color: #fff;
+      h1 {
+        font-size: 48px;
+      }
+      p {
+        margin-top: 1rem;
+      }
+      button {
+        background-color: rgba(0,0,0,0);
+        border: 4px solid #f7f7f7;
+        margin-top: 1rem;
+        color: #fff;
+        width: 8rem;
+        letter-spacing: 0.4rem;
+        font-size: 1rem;
+      }
+    }
+}
+
+footer {
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: space-around;
+    .icon .menu .sns{
+      width: calc(100% / 3);
+      // display: block;
+    }
+    ul {
+      display: flex;
+      flex-wrap:wrap;
+      li{
+        list-style: none;
+        width: 140px;
+      }
+    }
+    i {
+      color: #fff;
+      font-family: "Font Awesome 5 Brands";
+      font-weight: 400;
+    }
+}
